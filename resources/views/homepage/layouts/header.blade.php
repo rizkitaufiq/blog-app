@@ -7,10 +7,10 @@
             <li><a>Link</a></li>
             <li>
                 <details>
-                    <summary>Parent</summary>
+                    <summary>Languange</summary>
                     <ul class="bg-base-100 rounded-t-none p-2">
-                        <li><a>Link 1</a></li>
-                        <li><a>Link 2</a></li>
+                        <li><a href="{{ route('changeLang', ['locale' => 'en']) }}">English</a></li>
+                        <li><a href="{{ route('changeLang', ['locale' => 'id']) }}">Indonesia</a></li>
                     </ul>
                 </details>
             </li>
