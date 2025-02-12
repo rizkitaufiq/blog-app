@@ -12,7 +12,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                sans: ["Poppins", "sans-serif"],
             },
 
             colors: {
@@ -21,6 +21,7 @@ export default {
                 secondary: "#E2DAD6",
                 tertiary: "#F5EDED",
                 danger: "#FB9EC6",
+                success: "#73C7C7",
             },
         },
     },

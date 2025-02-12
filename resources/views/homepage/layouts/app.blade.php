@@ -8,6 +8,8 @@
     @vite('resources/css/app.css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
     <title>{{ config('app.name', 'BlogKU') }}</title>
 </head>
 
@@ -16,9 +18,13 @@
         @include('homepage.layouts.header')
     </header>
 
-    <main class="flex w-full text-primary mt-4 lg:mt-5 p-4">
+    <div class="flex w-full text-primary mt-4 lg:mt-5 p-4">
         @yield('content')
-    </main>
+    </div>
+
+    <footer class="footer footer-center bg-neutral text-neutral-content rounded p-10">
+        @include('homepage.layouts.footer')
+    </footer>
 </body>
 
 </html>

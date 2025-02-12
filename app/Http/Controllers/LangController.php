@@ -21,8 +21,8 @@ class LangController extends Controller
             throw new HttpException(400, 'Language not supported');
         }
 
-        Session::put('locale', $locale);
         App::setLocale($locale);
+        Session::put('locale', $locale);
 
         return back();
     }
