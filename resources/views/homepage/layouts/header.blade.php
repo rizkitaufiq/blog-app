@@ -22,7 +22,7 @@
                 </details>
             </li>
 
-            <li><a>@lang('homepage.login')</a></li>
+            <li><a href="{{ route('login') }}">@lang('homepage.login')</a></li>
 
         </ul>
     </div>
