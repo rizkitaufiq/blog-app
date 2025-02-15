@@ -23,8 +23,11 @@
                 <button
                     class="h-[3vh] lg:h-auto w-[10vh] lg:w-[18vh] text-[8px] flex justify-center items-center lg:text-sm text-center bg-primary text-white font-bold hover:bg-default p-2 rounded-full cursor-pointer">@lang('homepage.get_started')</button>
 
-                <button
-                    class="h-[3vh] lg:h-auto w-[7vh] lg:w-[14vh] text-[8px] flex justify-center items-center lg:text-sm text-center bg-default text-white font-bold hover:bg-primary p-2 rounded-full cursor-pointer">@lang('homepage.register')</button>
+                <form action="{{ route('register') }}">
+                    @csrf
+                    <button type="submit"
+                        class="h-[3vh] lg:h-auto w-[7vh] lg:w-[14vh] text-[8px] flex justify-center items-center lg:text-sm text-center bg-default text-white font-bold hover:bg-primary p-2 rounded-full cursor-pointer">@lang('homepage.register')</button>
+                </form>
             </div>
         </div>
 

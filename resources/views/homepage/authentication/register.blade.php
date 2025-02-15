@@ -15,37 +15,58 @@
     <main class="hero bg-base-200 min-h-screen">
         <section class="card card-side bg-base-100 shadow-xl lg:flex-row">
 
-            <form class="card-body">
+            <form class="card-body" method="POST" action={{ route('register.process') }}>
+                @csrf
                 <div class="form-control -mb-2 lg:mb-0">
-                    <label class="label">
+                    <label for="username" class="label">
                         <span class="text-primary label-text text-[8px] lg:text-sm">@lang('registerPage.username')</span>
                     </label>
-                    <input type="text" placeholder="{{ strtolower(__('registerPage.username')) }}"
-                        class="h-[4vh] lg:h-[6vh] input input-bordered text-[8px] lg:text-sm -mt-2 lg:mt-0" required />
+
+                    <input id="username" name="username" type="text"
+                        placeholder="{{ strtolower(__('registerPage.username')) }}"
+                        class="h-[4vh] lg:h-[6vh] input input-bordered text-[8px] lg:text-sm -mt-2 lg:mt-0"
+                        value="{{ old('username') }}" autocomplete="username" />
+
+                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
                 </div>
 
                 <div class="form-control -mb-2 lg:mb-0">
-                    <label class="label">
+                    <label for="email" class="label">
                         <span class="text-primary label-text text-[8px] lg:text-sm">@lang('registerPage.email')</span>
                     </label>
-                    <input type="email" placeholder="{{ strtolower(__('registerPage.email')) }}"
-                        class="h-[4vh] lg:h-[6vh] input input-bordered text-[8px] lg:text-sm -mt-2 lg:mt-0" required />
+
+                    <input id="email" name="email" type="text"
+                        placeholder="{{ strtolower(__('registerPage.email')) }}"
+                        class="h-[4vh] lg:h-[6vh] input input-bordered text-[8px] lg:text-sm -mt-2 lg:mt-0"
+                        value="{{ old('email') }}" autocomplete="email" />
+
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <div class="form-control -mb-2 lg:mb-0">
-                    <label class="label">
+                    <label for="password" class="label">
                         <span class="text-primary label-text text-[8px] lg:text-sm">@lang('registerPage.password')</span>
                     </label>
-                    <input type="password" placeholder="{{ strtolower(__('registerPage.password')) }}"
-                        class="h-[4vh] lg:h-[6vh] input input-bordered text-[8px] lg:text-sm -mt-2 lg:mt-0" required />
+
+                    <input id="password" name="password" type="password"
+                        placeholder="{{ strtolower(__('registerPage.password')) }}"
+                        class="h-[4vh] lg:h-[6vh] input input-bordered text-[8px] lg:text-sm -mt-2 lg:mt-0"
+                        autocomplete="new-password" />
+
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
                 <div class="form-control -mb-2 lg:mb-0">
-                    <label class="label">
+                    <label for="confirmPassword" class="label">
                         <span class="text-primary label-text text-[8px] lg:text-sm">@lang('registerPage.confirm_password')</span>
                     </label>
-                    <input type="password" placeholder="{{ strtolower(__('registerPage.confirm_password')) }}"
-                        class="h-[4vh] lg:h-[6vh] input input-bordered text-[8px] lg:text-sm -mt-2 lg:mt-0" required />
+
+                    <input id="confirmPassword" type="password"
+                        placeholder="{{ strtolower(__('registerPage.confirm_password')) }}" name="password_confirmation"
+                        class="h-[4vh] lg:h-[6vh] input input-bordered text-[8px] lg:text-sm -mt-2 lg:mt-0"
+                        autocomplete="new-password" />
+
+                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
 
                     <div class="flex mt-1 lg:mt-3">
                         <p class="text-[8px] lg:text-sm">@lang('registerPage.already_have_an_account')
@@ -55,6 +76,7 @@
                         </p>
                     </div>
                 </div>
+
                 <div class="form-control mt-2 lg:mt-5">
                     <button
                         class="h-[3vh] lg:h-[6vh] bg-primary rounded-[5px] hover:bg-gray-400 text-white text-[8px] lg:text-sm">@lang('registerPage.register')</button>

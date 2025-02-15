@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     @vite('resources/css/app.css')
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'BlogKU') }}</title>
 </head>
@@ -21,18 +22,22 @@
 
             <form class="card-body">
                 <div class="form-control -mb-2 lg:mb-0">
-                    <label class="label">
+                    <label for="email" class="label">
                         <span class="text-primary label-text text-[8px] lg:text-sm">@lang('loginPage.email')</span>
                     </label>
-                    <input type="email" placeholder="{{ strtolower(__('loginPage.email')) }}"
+
+                    <input id="email" name="email" type="email"
+                        placeholder="{{ strtolower(__('loginPage.email')) }}"
                         class="h-[4vh] lg:h-[6vh] input input-bordered text-[8px] lg:text-sm -mt-2 lg:mt-0" required />
                 </div>
 
                 <div class="form-control -mb-2 lg:mb-0">
-                    <label class="label">
+                    <label for="password" class="label">
                         <span class="text-primary label-text text-[8px] lg:text-sm">@lang('loginPage.password')</span>
                     </label>
-                    <input type="password" placeholder="{{ strtolower(__('loginPage.password')) }}"
+
+                    <input id="password" name="password" type="password"
+                        placeholder="{{ strtolower(__('loginPage.password')) }}"
                         class="h-[4vh] lg:h-[6vh] input input-bordered text-[8px] lg:text-sm -mt-2 lg:mt-0" required />
 
                     <div class="flex mt-1 lg:mt-3">
@@ -50,6 +55,21 @@
             </form>
         </section>
     </main>
+
+
+    <script>
+        window.sessionSuccess = @json(session('success'));
+        window.sessionError = @json(session('error'));
+    </script>
+
+    @vite(['resources/js/app.js'])
+
+    <script>
+        let token = "{{ session('jwt_token') }}";
+        if (token) {
+            console.log("Token JWT:", token);
+        }
+    </script>
 
 </body>
 
