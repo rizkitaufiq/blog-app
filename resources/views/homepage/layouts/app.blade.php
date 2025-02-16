@@ -9,7 +9,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script type="module" src="{{ asset('resources/js/app.js') }}"></script>
 
     <title>{{ config('app.name', 'BlogKU') }}</title>
 </head>
@@ -26,6 +25,13 @@
     <footer class="footer footer-center bg-neutral text-neutral-content rounded p-10">
         @include('homepage.layouts.footer')
     </footer>
+
+    <script>
+        window.sessionSuccess = @json(session('success'));
+        window.sessionError = @json(session('error'));
+    </script>
+
+    @vite(['resources/js/app.js'])
 
 </body>
 

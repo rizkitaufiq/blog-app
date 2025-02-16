@@ -15,13 +15,11 @@ Route::middleware(LangMiddleware::class)->group(function () {
         return view('homepage/homepage');
     });
 
-    // Route::get('/homepage', function () {
-    //     return view('homepage/homepage')->name('homepage');
-    // });
 
-    // Route::get('/login', [AuthenticationController::class, 'login'])->name('login');
+    Route::middleware(['auth'])->group(function () {
 
-    // Route::get('/register', [AuthenticationController::class, 'register'])->name('register');
+        Route::get('/homepage', [HomepageController::class, 'homepage'])->name('homepage');
+    });
 });
 
 // Route::get('/', function () {

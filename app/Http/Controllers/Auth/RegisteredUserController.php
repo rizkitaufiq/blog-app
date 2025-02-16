@@ -66,15 +66,6 @@ class RegisteredUserController extends Controller
 
         Notification::send($user, new VerifyJWTEmailNotification($token));
 
-        // session()->flash('verification_token', $token);
-
-        // return response()->json([
-        //     'message' => 'Silakan cek email untuk verifikasi akun!',
-        //     'token' => $token,
-        // ], 201);
-
-        // Auth::login($user);
-
         return redirect()->route('login')->with('success', __('auth.account_creation_successful'));
     }
 }

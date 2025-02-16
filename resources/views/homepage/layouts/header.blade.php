@@ -10,7 +10,7 @@
                     class="input input-bordered w-20 lg:w-auto h-[35px] lg:h-[40px] text-[12px] lg:text-base" />
             </div>
 
-            <li><a>@lang('homepage.home')</a></li>
+            <li><a href="">@lang('homepage.home')</a></li>
 
             <li>
                 <details>
@@ -22,7 +22,32 @@
                 </details>
             </li>
 
-            <li><a href="{{ route('login') }}">@lang('homepage.login')</a></li>
+            @if (Auth::check())
+                <li>
+                    <details>
+                        <summary><i class="bx bx-user text-sm lg:text-base "></i>{{ Auth::user()->username }}</summary>
+                        <ul class="bg-base-100 rounded-t-none p-2 z-20">
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST" class="inline">
+                                    @csrf
+                                    <button type="submit"
+                                        class="bg-warning px-4 py-2 rounded hover:bg-warning">@lang('homepage.posting')</button>
+                                </form>
+                            </li>
+
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST" class="inline">
+                                    @csrf
+                                    <button type="submit"
+                                        class="bg-warning px-4 py-2 rounded hover:bg-warning">@lang('homepage.logout')</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+            @else
+                <li><a href="{{ route('login') }}">@lang('homepage.login')</a></li>
+            @endif
 
         </ul>
     </div>

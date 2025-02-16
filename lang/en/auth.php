@@ -25,6 +25,7 @@ return [
     'email_max'             => 'Maximum email length is 30',
     'email_unique'          => 'Email already exist or registered',
     'email_and_password_confirmed' => 'Email and password do not match',
+    'email_not_verified'    => 'Email not verified',
 
     'password_required'     => 'Password required, please entry',
     'password_min'          => 'At least 8 characters',
@@ -32,7 +33,10 @@ return [
 
     'account_creation_successful' => 'Account creation successful please check your email',
 
-    'failed' => 'These credentials do not match our records.',
+    'login_successful'      => 'Login to account successfully',
+    'logout_successful'      => 'Logout from account successfully',
+
+    'failed' => 'Incorrect email or password',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in =>seconds seconds.',
 

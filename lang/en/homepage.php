@@ -4,6 +4,7 @@ return [
     'language' => 'Language',
     'home'    => 'Home',
     'search'  => "Search",
+    'posting' => 'Posting',
     'logout' => 'Logout',
 
 

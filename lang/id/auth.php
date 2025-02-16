@@ -23,6 +23,7 @@ return [
     'email_email'           => 'Silahkan masukan "@" atau tipe email',
     'email_unique'          => 'Email sudah ada atau terdaftar',
     'email_and_password_do_not_match' => 'Email dan kata sandi tidak cocok',
+    'email_not_verified'    => 'Email belum verifikasi',
 
     'password_required'     => 'Password kosong, silahkan masukan',
     'password_min'          => 'Minimal 8 karakter',
@@ -30,7 +31,10 @@ return [
 
     'account_creation_successful' => 'Pembuatan akun berhasil silahkan check email anda',
 
-    'failed' => 'Kredensial ini tidak cocok dengan catatan kami',
+    'login_successful'      => 'Masuk ke akun berhasil',
+    'logout_successful'      => 'Keluar dari akun berhasil',
+
+    'failed' => 'Email atau password salah',
     'password' => 'Kata sandi yang diberikan salah',
     'throttle' => 'Terlalu banyak upaya login. Silakan coba lagi dalam =>detik detik',
 

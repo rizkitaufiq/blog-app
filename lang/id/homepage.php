@@ -4,6 +4,7 @@ return [
     'language' => 'Bahasa',
     'home'    => 'Beranda',
     'search'  => "Cari",
+    'posting' => 'Posting',
     'logout' => 'Keluar',
 
     'welcome_to_the_blogku' => 'Selamat datang di BlogKU',
