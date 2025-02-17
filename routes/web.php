@@ -10,9 +10,7 @@ Route::get('/lang/{locale}', [LangController::class, 'setLang'])->name('changeLa
 
 Route::middleware(LangMiddleware::class)->group(function () {
 
-    Route::get('/', function () {
-        return view('homepage/homepage');
-    });
+    Route::get('/', [HomepageController::class, 'homepage'])->name('homepage');
 
     Route::get('/homepage', [HomepageController::class, 'homepage'])->name('homepage');
 });
