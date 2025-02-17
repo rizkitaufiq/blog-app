@@ -27,4 +27,6 @@ return [
 
     'not_posts_yet' => 'No posts yet...',
 
+    'contact' => 'Contact',
+
 ];

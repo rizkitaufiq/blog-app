@@ -28,5 +28,6 @@ return [
 
     'not_posts_yet' => 'Belum ada postingan...',
 
+    'contact' => 'Kontak',
 
 ];
