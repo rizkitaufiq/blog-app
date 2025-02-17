@@ -14,7 +14,7 @@ return [
     'like' => 'Like',
     'comment' => 'Comment',
 
-    'no_posts_yet' => 'Belum ada postingan...',
+    'not_posts_yet' => 'Not posts yet...',
 
     'title_required' => 'Title required, please entry',
     'title_max' => 'Maximum 8 character',

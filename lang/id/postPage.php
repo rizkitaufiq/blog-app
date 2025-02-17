@@ -14,7 +14,7 @@ return [
     'like' => 'Suka',
     'comment' => 'Komen',
 
-    'no_posts_yet' => 'Belum ada postingan...',
+    'not_posts_yet' => 'Belum ada postingan...',
 
     'title_required' => 'Judul kosong, silahkan isi',
     'title_max' => 'Maksimal 8 karakter',

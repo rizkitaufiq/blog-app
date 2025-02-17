@@ -22,7 +22,9 @@ return [
 
     'like' => 'Like',
     'comment' => 'Comment',
+    'write_comment' => 'Write a comment here',
+    'send' => 'Send',
 
-    'no_posts_yet' => 'No posts yet...',
+    'not_posts_yet' => 'No posts yet...',
 
 ];

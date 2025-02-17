@@ -20,8 +20,11 @@
 
             <div class="flex mt-4 gap-2">
 
-                <button
-                    class="h-[3vh] lg:h-auto w-[10vh] lg:w-[18vh] text-[8px] flex justify-center items-center lg:text-sm text-center bg-primary text-white font-bold hover:bg-default p-2 rounded-full cursor-pointer">@lang('homepage.get_started')</button>
+                <form action="{{ route('post') }}">
+                    @csrf
+                    <button
+                        class="h-[3vh] lg:h-auto w-[10vh] lg:w-[18vh] text-[8px] flex justify-center items-center lg:text-sm text-center bg-primary text-white font-bold hover:bg-default p-2 rounded-full cursor-pointer">@lang('homepage.get_started')</button>
+                </form>
 
                 <form action="{{ route('register') }}">
                     @csrf

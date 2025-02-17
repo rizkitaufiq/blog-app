@@ -31,6 +31,30 @@
         window.sessionError = @json(session('error'));
     </script>
 
+    <script>
+        function toggleComment(postId) {
+            var commentSection = document.getElementById("comment-section-" + postId);
+
+            if (commentSection.classList.contains("hidden")) {
+                commentSection.classList.remove("hidden");
+            } else {
+                commentSection.classList.add("hidden");
+            }
+        }
+    </script>
+
+    <script>
+        function toggleReplay(postId) {
+            var commentSection = document.getElementById("comment-section-" + postId);
+
+            if (commentSection.classList.contains("hidden")) {
+                commentSection.classList.remove("hidden");
+            } else {
+                commentSection.classList.add("hidden");
+            }
+        }
+    </script>
+
     @vite(['resources/js/app.js'])
 
 </body>

@@ -11,6 +11,7 @@
                             <div tabindex="0" role="button" class="btn m-1 font-bold">:</div>
                             <ul tabindex="0"
                                 class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+
                                 <li>
                                     <a href="{{ route('post.update', $post->id) }}"><i
                                             class="bx bx-pencil text-sm lg:text-base "></i>
@@ -27,14 +28,17 @@
                                         @method('DELETE')
                                     </form>
                                 </li>
+
                             </ul>
                         </div>
 
                         <article class="card bg-base-100 w-full">
+
                             <figure>
                                 <img src="{{ asset('upload/posts/' . $post->image) }}" alt="image"
                                     class="w-[40vh] lg:w-[150vh]" />
                             </figure>
+
                             <div class="card-body">
                                 <h2 class="card-title text-[12px] lg:text-xl">
                                     {{ $post->title }}
@@ -43,15 +47,39 @@
                                 </h2>
                                 <p class="text-[8px] lg:text-sm mb-4 text-black text-justify"> {{ $post->content }}</p>
                                 <div class="flex gap-2 justify-end">
-                                    <div
+
+                                    {{-- <div
                                         class="w-[4vh] lg:w-auto h-[2vh] lg:h-full text-[8px] lg:text-sm lowercase hover:text-white hover:bg-primary badge badge-outline ">
                                         <a href="">@lang('postPage.like')</a>
-                                    </div>
+                                    </div> --}}
+
                                     <div
                                         class="w-[7vh] lg:w-auto h-[2vh] lg:h-full text-[8px] lg:text-sm lowercase hover:text-white hover:bg-primary badge badge-outline">
-                                        <a href="">@lang('postPage.comment')</a>
+                                        <a href="javascript:void(0);"
+                                            onclick="toggleComment({{ $post->id }})">@lang('postPage.comment') <i
+                                                class="rounded-full text-danger font-bold">
+                                                {{ $post->comments->count() }}</i></a>
                                     </div>
                                 </div>
+
+                                <div id="comment-section-{{ $post->id }}" class="hidden mt-2">
+
+                                    <form action="{{ route('comment') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+
+                                        <textarea name="content" rows="2" class="w-full border p-2 rounded-md mt-2 lg:mt-4"
+                                            placeholder="@lang('homepage.write_comment')"></textarea>
+
+                                        <button type="submit"
+                                            class="mt-2 px-4 py-2 bg-primary text-white rounded-md">@lang('homepage.send')</button>
+                                    </form>
+
+                                    <section class="mt-4">
+                                        @include('homepage.comment')
+                                    </section>
+                                </div>
+
                             </div>
                         </article>
                     </div>

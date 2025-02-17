@@ -13,7 +13,7 @@
                         <p class="text-justify">{{ $post->content }}
                     </div>
 
-                    <div>
+                    <div class="flex justify-end">
                         <p href="" class="text-primary">{{ $post->updated_at }}</p>
                     </div>
                     </p>
@@ -22,7 +22,7 @@
                 <p class="text-primary"><i class="bx bx-share text-sm lg:text-base "></i>
                     {{ $post->user->username }}</p>
 
-                <div class="flex gap-1 lg:gap-2 justify-end mt-3">
+                {{-- <div class="flex gap-1 lg:gap-2 justify-end mt-3">
                     <div
                         class="w-[4vh] lg:w-auto h-[2vh] lg:h-full text-[8px] lg:text-sm lowercase hover:text-white hover:bg-default badge badge-outline ">
                         <a href="">@lang('homepage.like')</a>
@@ -31,7 +31,7 @@
                         class="w-[7vh] lg:w-auto h-[2vh] lg:h-full text-[8px] lg:text-sm lowercase hover:text-white hover:bg-primary badge badge-outline">
                         <a href="">@lang('homepage.comment')</a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         @endforeach
 
@@ -58,7 +58,7 @@
                         <p class="text-justify">{{ $post->content }}
                     </div>
 
-                    <div>
+                    <div class="flex justify-end">
                         <p href="" class="text-primary">{{ $post->updated_at }}</p>
                     </div>
                     </p>
@@ -67,7 +67,7 @@
                 <p class="text-primary"><i class="bx bx-share text-sm lg:text-base "></i>
                     {{ $post->user->username }}</p>
 
-                <div class="flex gap-1 lg:gap-2 justify-end mt-3">
+                {{-- <div class="flex gap-1 lg:gap-2 justify-end mt-3">
                     <div
                         class="w-[4vh] lg:w-auto h-[2vh] lg:h-full text-[8px] lg:text-sm lowercase hover:text-white hover:bg-default badge badge-outline ">
                         <a href="">@lang('homepage.like')</a>
@@ -76,7 +76,7 @@
                         class="w-[7vh] lg:w-auto h-[2vh] lg:h-full text-[8px] lg:text-sm lowercase hover:text-white hover:bg-primary badge badge-outline">
                         <a href="">@lang('homepage.comment')</a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         @endforeach
 

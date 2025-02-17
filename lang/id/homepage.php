@@ -23,8 +23,10 @@ return [
 
     'like' => 'Suka',
     'comment' => 'Komen',
+    'write_comment' => 'Tulis komentar disini',
+    'send' => 'Kirim',
 
-    'no_posts_yet' => 'Belum ada postingan...',
+    'not_posts_yet' => 'Belum ada postingan...',
 
 
 ];
