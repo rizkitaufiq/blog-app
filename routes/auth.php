@@ -84,8 +84,6 @@ Route::middleware(LangMiddleware::class)->group(
 
             Route::post('logout', [AuthenticatedSessionController::class, 'logout'])
                 ->name('logout');
-
-            Route::get('/homepage', [HomepageController::class, 'homepage'])->name('homepage');
         });
     }
 );

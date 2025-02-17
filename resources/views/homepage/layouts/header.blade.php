@@ -2,15 +2,12 @@
     <div class="hidden lg:flex md:flex">
         <a class="text-secondary font-bold text-xl">BlogKU</a>
     </div>
+
     <div class="flex justify-center items-center">
-        <ul class="menu menu-horizontal px-1 text-[12px] lg:text-base lg:gap-2 font-bold text-default">
 
-            <div class="form-control">
-                <input name="search" type="text" placeholder="@lang('homepage.search')"
-                    class="input input-bordered w-20 lg:w-auto h-[35px] lg:h-[40px] text-[12px] lg:text-base" />
-            </div>
+        <ul class="menu menu-horizontal lg:px-1 text-[12px] lg:text-base -mx-4 lg:gap-2 font-bold text-default">
 
-            <li><a href="">@lang('homepage.home')</a></li>
+            <li><a href="{{ route('homepage') }}">@lang('homepage.home')</a></li>
 
             <li>
                 <details>
@@ -28,7 +25,7 @@
                         <summary><i class="bx bx-user text-sm lg:text-base "></i>{{ Auth::user()->username }}</summary>
                         <ul class="bg-base-100 rounded-t-none p-2 z-20">
                             <li>
-                                <form action="{{ route('logout') }}" method="POST" class="inline">
+                                <form action="{{ route('post') }}" class="inline">
                                     @csrf
                                     <button type="submit"
                                         class="bg-warning px-4 py-2 rounded hover:bg-warning">@lang('homepage.posting')</button>

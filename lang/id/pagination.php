@@ -2,6 +2,8 @@
 
 return [
 
+
+
     /*
     |--------------------------------------------------------------------------
     | Pagination Language Lines
@@ -13,12 +15,12 @@ return [
     |
     */
 
-    'previous' => 'Previous',
-    'next' => 'Next',
-    'showing' => 'Showing',
-    'to' => 'to',
-    'of' => 'of',
-    'results' => 'results',
+    'previous' => 'Sebelumnya',
+    'next' => 'Berikutnya',
+    'showing' => 'Menampilkan',
+    'to' => 'hingga',
+    'of' => 'dari',
+    'results' => 'hasil',
 
     // 'previous' => '&laquo; Previous',
     // 'next' => 'Next &raquo;',

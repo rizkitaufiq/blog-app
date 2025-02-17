@@ -10,7 +10,7 @@ export function showToast(message, type = "success") {
 
     Toastify({
         text: message,
-        duration: 4000,
+        duration: 3000,
         gravity: "top",
         position: "right",
         stopOnFocus: true,

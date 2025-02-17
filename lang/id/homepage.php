@@ -16,7 +16,15 @@ return [
                     di dunia. Mudah, simpel dan cepat.',
     ],
 
+
+    'filter' => 'Sortir',
+    'latest_post' => 'Postingan terbaru',
+    'oldest_post' => 'Postingan lama',
+
     'like' => 'Suka',
     'comment' => 'Komen',
+
+    'no_posts_yet' => 'Belum ada postingan...',
+
 
 ];

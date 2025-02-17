@@ -22,7 +22,7 @@
         @yield('content')
     </div>
 
-    <footer class="footer footer-center bg-neutral text-neutral-content rounded p-10">
+    <footer class="footer footer-center bg-neutral text-neutral-content rounded p-10 w-full">
         @include('homepage.layouts.footer')
     </footer>
 

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Homepage\HomepageController;
-use App\Http\Controllers\Homepage\AuthenticationController;
 use App\Http\Controllers\LangController;
 use App\Http\Middleware\LangMiddleware;
 use App\Http\Controllers\ProfileController;
@@ -15,11 +14,7 @@ Route::middleware(LangMiddleware::class)->group(function () {
         return view('homepage/homepage');
     });
 
-
-    Route::middleware(['auth'])->group(function () {
-
-        Route::get('/homepage', [HomepageController::class, 'homepage'])->name('homepage');
-    });
+    Route::get('/homepage', [HomepageController::class, 'homepage'])->name('homepage');
 });
 
 // Route::get('/', function () {
@@ -37,3 +32,4 @@ Route::middleware(LangMiddleware::class)->group(function () {
 // });
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/post.php';
