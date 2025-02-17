@@ -11,9 +11,27 @@ use App\Models\Post;
 class HomepageController extends Controller
 {
     //
-    public function homepage(): View
+    public function homepage(Request $request): View
     {
-        $posts = Post::with('user')->latest()->paginate(2, ['*'], 'mainPage');
+        $query = Post::with('user');
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                    ->orWhere('content', 'like', "%{$search}%")
+                    ->orWhere('updated_at', 'like', "%{$search}%");
+            });
+        }
+
+        $sort = $request->input('sort', 'latest');
+        if ($sort === 'oldest') {
+            $query->orderBy('created_at', 'asc');
+        } else {
+            $query->orderBy('created_at', 'desc');
+        }
+
+        $posts = $query->latest()->paginate(2, ['*'], 'mainPage')->appends($request->query());
 
         $latestPosts = Post::with('user')->orderBy('created_at', 'desc')->paginate(2, ['*'], 'latestPage');
         $oldestPosts = Post::with('user')->orderBy('created_at', 'asc')->paginate(2, ['*'], 'oldestPage');

@@ -10,9 +10,10 @@
             <div class="w-full flex flex-column gap-4 text-[8px] lg:text-sm">
                 <div class="w-[50%]">
 
-                    <div class="flex items-center gap-2 lg:gap-8">
+                    <form action="{{ route('homepage') }}" method="GET" class="flex items-center gap-2 lg:gap-8">
                         <div class="form-control mb-2 lg:mb-4">
-                            <input name="search" type="text" placeholder="@lang('homepage.search')"
+                            <input name="search" value="{{ request('search') }}" type="text"
+                                placeholder="@lang('homepage.search')"
                                 class="input input-bordered w-20 lg:w-auto h-[20px] lg:h-[45px] text-[8px] lg:text-base" />
                         </div>
 
@@ -24,15 +25,22 @@
                                         <summary><i class="bx bx-filter text-[8px] lg:text-base "></i>@lang('homepage.filter')
                                         </summary>
                                         <ul
-                                            class="bg-base-100 rounded-t-none p-0 lg:p-2 z-20 text-[8px] lg:text-sm w-[15vh] lg:w-[25vh]">
-                                            <li><a href="">latest post</a></li>
-                                            <li><a href="">oldest post</a></li>
+                                            class="bg-base-100 rounded-t-none p-0 lg:p-2 z-20 text-[8px] lg:text-sm w-[15vh] lg:w-[30vh]">
+
+                                            <li><a href="{{ route('homepage', array_merge(request()->query(), ['sort' => 'latest'])) }}"
+                                                    class="{{ request('sort', 'latest') === 'latest' ? 'bg-primary text-white' : '' }}">@lang('homepage.latest_post')</a>
+                                            </li>
+
+                                            <li><a href="{{ route('homepage', array_merge(request()->query(), ['sort' => 'oldest'])) }}"
+                                                    class="{{ request('sort') === 'oldest' ? 'bg-primary text-white' : '' }}">@lang('homepage.oldest_post')</a>
+                                            </li>
                                         </ul>
                                     </details>
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </form>
+
 
                     @if ($posts->count())
                         @foreach ($posts as $post)
@@ -66,17 +74,38 @@
 
                                             <div class="flex gap-2 justify-end">
 
-                                                <div
+                                                {{-- <div
                                                     class="w-[4vh] lg:w-auto h-[2vh] lg:h-full text-[8px] lg:text-sm lowercase hover:text-white hover:bg-primary badge badge-outline ">
                                                     <a href="">@lang('homepage.like')</a>
-                                                </div>
+                                                </div> --}}
 
                                                 <div
                                                     class="w-[7vh] lg:w-auto h-[2vh] lg:h-full text-[8px] lg:text-sm lowercase hover:text-white hover:bg-primary badge badge-outline">
-                                                    <a href="">@lang('homepage.comment')</a>
+                                                    <a href="javascript:void(0);"
+                                                        onclick="toggleComment({{ $post->id }})">
+                                                        @lang('homepage.comment')<i class="rounded-full text-danger font-bold">
+                                                            {{ $post->comments->count() }}</i></a>
                                                 </div>
-
                                             </div>
+
+                                            <div id="comment-section-{{ $post->id }}" class="hidden mt-2">
+
+                                                <form action="{{ route('comment') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+
+                                                    <textarea name="content" rows="2" class="w-full border p-2 rounded-md mt-2 lg:mt-4"
+                                                        placeholder="@lang('homepage.write_comment')"></textarea>
+
+                                                    <button type="submit"
+                                                        class="mt-2 px-4 py-2 bg-primary text-white rounded-md">@lang('homepage.send')</button>
+                                                </form>
+
+                                                <section class="mt-4">
+                                                    @include('homepage.comment')
+                                                </section>
+                                            </div>
+
                                         </div>
                                     </article>
                                 </div>
@@ -97,16 +126,7 @@
                 </aside>
 
             </div>
+
         </main>
     </div>
-
-    <style>
-        @media (max-width: 640px) {
-            .pagination .page-link {
-                padding: 6px 10px !important;
-                font-size: 12px !important;
-            }
-        }
-    </style>
-
 @endsection
